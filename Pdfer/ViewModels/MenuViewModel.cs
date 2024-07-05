@@ -30,6 +30,7 @@ namespace Pdfer.ViewModels
         public void selectPageCommand(object obj)
         {
             WeakReferenceMessenger.Default.Send(Convert.ToString(obj));
+            SelectedPage = (PageType)Convert.ToInt32(obj)-1;
         }
 
 
@@ -37,5 +38,30 @@ namespace Pdfer.ViewModels
         {
             Current = this;
         }
+
+        private PageType _selectedPage;
+
+        public PageType SelectedPage
+        {
+            get { return _selectedPage; }
+            set
+            {
+                if (_selectedPage != value)
+                {
+                    _selectedPage = value;
+                    OnPropertyChanged(nameof(SelectedPage));
+                }
+            }
+        }
+
+        public enum PageType
+        {
+            Page1,
+            Page2,
+            Page3
+        }
+
+        // 其他属性和方法...
+
     }
 }

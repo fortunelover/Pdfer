@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pdfer"
         xmlns:ViewModels="clr-namespace:Pdfer.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="720" Width="1080">
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
