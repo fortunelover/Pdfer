@@ -42,7 +42,7 @@ namespace Pdfer.ViewModels
 
             public MainWindowViewModel()
             {
-                WeakReferenceMessenger.Default.Register(this);
+                WeakReferenceMessenger.Default.Register(this, "Page");
                 Init(1);
             }
         }

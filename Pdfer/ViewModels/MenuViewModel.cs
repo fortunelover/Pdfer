@@ -21,7 +21,7 @@ namespace Pdfer.ViewModels
         public MenuViewModel()
         {
             SelectPageCommand = new RelayCommand<object>(selectPageCommand);
-            WeakReferenceMessenger.Default.Register(this);
+            WeakReferenceMessenger.Default.Register(this,"Page");
         }
 
         public ICommand SelectPageCommand { get; set; }
@@ -29,7 +29,7 @@ namespace Pdfer.ViewModels
 
         public void selectPageCommand(object obj)
         {
-            WeakReferenceMessenger.Default.Send(Convert.ToString(obj));
+            WeakReferenceMessenger.Default.Send(Convert.ToString(obj),"Page");
             SelectedPage = (PageType)Convert.ToInt32(obj)-1;
         }
 

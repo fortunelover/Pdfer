@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using Pdfer.Common;
 using Pdfer.Models;
 using Pdfer.Services;
@@ -17,7 +18,7 @@ namespace Pdfer.ViewModels
     {
         public SplicingViewModel()
         {
-
+            WeakReferenceMessenger.Default.RegisterAll(this, "Log");
         }
 
         private ObservableCollection<PathModel> gridModelList = new ObservableCollection<PathModel>();

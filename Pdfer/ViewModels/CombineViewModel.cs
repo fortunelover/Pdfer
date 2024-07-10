@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using Pdfer.Common;
 using Pdfer.Models;
 using Pdfer.Services;
 using System;
@@ -17,6 +19,7 @@ namespace Pdfer.ViewModels
         public CombineViewModel()
         {
             gridModelList = new ObservableCollection<PathModel>();
+            WeakReferenceMessenger.Default.RegisterAll(this, "Log");
         }
 
         private ObservableCollection<PathModel> gridModelList ;
@@ -51,6 +54,8 @@ namespace Pdfer.ViewModels
             {
                 SavePath=dialog.FileName+@".pdf";
             }
+            CommonFunc.Log("Fuck");
+            //WeakReferenceMessenger.Default.Send("Fuck", "Log");
         });
 
         private string savePath;
@@ -85,15 +90,14 @@ namespace Pdfer.ViewModels
 
         public ICommand Execute => new RelayCommand(() =>
         {
-            outResult = "执行结果：\n";
             try
             {
                 PdfService.PdfCombine(GridModelList.Select(a=>a.SrcPath).ToArray(), SavePath);
-                OutResult += string.Format("合并成功！");
+                CommonFunc.Log("合并成功");
             }
             catch (Exception ex)
             {
-                OutResult += string.Format("执行失败！{0}\n", ex.Message);
+                CommonFunc.Log($"执行失败！{ex.Message}" );
             }
         });
 
