@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Styles/Button.xaml" />
                 <ResourceDictionary Source="Styles/MenuItem.xaml" />
                 <ResourceDictionary Source="Styles/Border.xaml" />
+                <ResourceDictionary Source="Styles/TextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

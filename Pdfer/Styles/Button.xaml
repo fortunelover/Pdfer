@@ -12,4 +12,38 @@
             </Style>
         </Style.Resources>
     </Style>
+
+    <Style TargetType="Button" x:Key="ButtonSegoe">
+        <Setter Property="Background" Value="SkyBlue"/>
+        <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FontFamily" Value="Segoe Print"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+
+    <Style TargetType="Button" x:Key="MenuButton">
+        <Setter Property="Background" Value="SkyBlue"/>
+        <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Height" Value="80"/>
+        <Setter Property="FontFamily" Value="Segoe Print"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Black"/>
+        <Setter Property="Foreground" Value="DodgerBlue"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BorderBrush" Value="DeepSkyBlue"/>
+            </Style>
+        </Style.Resources>
+    </Style>
 </ResourceDictionary>

@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="TextBox" x:Key="TextBoxMargin10">
+        <Setter Property="Height"  Value="Auto"  />
+        <Setter Property="Margin"  Value="10,10,10,10"/>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+    </Style>
+</ResourceDictionary>

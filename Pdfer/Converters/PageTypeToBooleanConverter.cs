@@ -1,19 +1,19 @@
-﻿using Pdfer.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using Tooler.Common.Enum;
 
-namespace Pdfer.Converters
+namespace Tooler.Converters
 {
     public class PageTypeToBooleanConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is MenuViewModel.PageType selectedPage && Enum.TryParse(parameter.ToString(), out MenuViewModel.PageType pageType))
+            if (value is PageType selectedPage && Enum.TryParse(parameter.ToString(), out PageType pageType))
             {
                 return selectedPage == pageType;
             }
@@ -24,7 +24,7 @@ namespace Pdfer.Converters
         {
             if ((bool)value)
             {
-                return Enum.Parse(typeof(MenuViewModel.PageType), parameter.ToString());
+                return Enum.Parse(typeof(PageType), parameter.ToString());
             }
             return Binding.DoNothing;
         }

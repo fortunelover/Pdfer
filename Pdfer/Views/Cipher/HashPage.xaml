@@ -1,0 +1,68 @@
+﻿<Page x:Class="Cipher.Views.HashPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cipher.Views" 
+      xmlns:ViewModel="clr-namespace:Cipher.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="HashPage">
+
+    <Grid>
+        <Grid.DataContext>
+            <ViewModel:HashViewModel/>
+        </Grid.DataContext>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10">
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Text="HashMode： " HorizontalAlignment="Center" ></TextBlock>
+                <ComboBox BorderThickness="1"
+                                          Background="White"
+                                          Text="{Binding CipherModeStr,Mode=TwoWay}" 
+                                          Width="80" 
+                                          HorizontalAlignment="Left">
+                    <ComboBoxItem Content="MD5" ></ComboBoxItem>
+                    <ComboBoxItem Content="SHA1" ></ComboBoxItem>
+                    <ComboBoxItem Content="SHA256" ></ComboBoxItem>
+                    <ComboBoxItem Content="SM3" ></ComboBoxItem>
+                    
+                </ComboBox>
+                <Button Margin="10,0,0,0" Content="EXE" Command="{Binding exe}"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <TextBlock Text="Source:"/>
+                <Grid Height="Auto" Margin="15,15" >
+                    <Border Style="{StaticResource CycleBorder}">
+                        <TextBox Text="{Binding Source, Mode=TwoWay}" Style="{StaticResource TextBoxMargin10}"/>
+                    </Border>
+                </Grid>
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                <TextBlock Text="Destination:"/>
+                <Grid Height="Auto" Margin="15,15" >
+                    <Border Style="{StaticResource CycleBorder}">
+                        <TextBox  Text="{Binding Destination,Mode=TwoWay}" Style="{StaticResource TextBoxMargin10}">
+                            <TextBox.Resources></TextBox.Resources>
+                        </TextBox>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

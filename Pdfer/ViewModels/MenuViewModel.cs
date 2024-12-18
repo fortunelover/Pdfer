@@ -1,14 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Tooler.Common.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Pdfer.ViewModels
+namespace Tooler.ViewModels
 {
     public class MenuViewModel : ObservableObject, IRecipient<string>
     {
@@ -27,10 +29,11 @@ namespace Pdfer.ViewModels
         public ICommand SelectPageCommand { get; set; }
 
 
-        public void selectPageCommand(object obj)
+        public void selectPageCommand(object parameter)
         {
-            WeakReferenceMessenger.Default.Send(Convert.ToString(obj),"Page");
-            SelectedPage = (PageType)Convert.ToInt32(obj)-1;
+            WeakReferenceMessenger.Default.Send(parameter.ToString(), "Page");
+            Enum.TryParse(parameter.ToString(), out PageType pageType);
+            SelectedPage = pageType;
         }
 
 
@@ -54,12 +57,7 @@ namespace Pdfer.ViewModels
             }
         }
 
-        public enum PageType
-        {
-            Page1,
-            Page2,
-            Page3
-        }
+
 
         // 其他属性和方法...
 

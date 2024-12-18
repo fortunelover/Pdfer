@@ -1,37 +1,135 @@
-﻿<Window x:Class="Pdfer.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Pdfer"
-        xmlns:ViewModels="clr-namespace:Pdfer.ViewModels"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
-    <Grid Background="AliceBlue">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="800"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid  Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Frame Source="/Views/MenuPage.xaml"/>
-            </Grid>
-            <Grid Grid.Row="1" >
-                <Grid >
-                    <Frame x:Name="page" Content="{Binding FrameSource}" NavigationUIVisibility="Hidden">
-                        <Frame.DataContext>
-                            <ViewModels:MainWindowViewModel/>
-                        </Frame.DataContext>
-                    </Frame>
-                </Grid>
-            </Grid>
+﻿<Window
+    x:Class="Tooler.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converter="clr-namespace:Tooler.Converters"
+    xmlns:ViewModels="clr-namespace:Tooler.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Pdfer"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:myControls="clr-namespace:Tooler.Controls"
+    Title="Tooler"
+    Width="1200"
+    Height="800"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <Converter:MenuPageTypeToBrushConverter x:Key="MenuPageTypeToBooleanConverter" />
+        <Converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    </Window.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid Background="AliceBlue">
+            <StackPanel
+                Name="GridMenu"
+                Height="800"
+                HorizontalAlignment="Left"
+                Panel.ZIndex="799"
+                Background="AliceBlue"
+                Orientation="Horizontal">
+                <StackPanel x:Name="GridMenuBottonColumn">
+                    <Grid>
+                        <Grid
+                            Width="200"
+                            Height="40"
+                            Panel.ZIndex="798"
+                            Background="AliceBlue" />
+                        <Button
+                            x:Name="RectMenuBotton"
+                            Width="40"
+                            Height="40"
+                            Margin="10,5,0,5"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="799"
+                            Background="AliceBlue"
+                            BorderBrush="AliceBlue"
+                            Click="Button_Click"
+                            FontFamily="Segoe Print"
+                            FontSize="18"
+                            Foreground="Blue" />
+                    </Grid>
+                    <StackPanel x:Name="GridMenuBotton">
+                        <GridSplitter
+                            Width="200"
+                            Height="1"
+                            Background="DodgerBlue" />
+                        <Button
+                            Background="{Binding SelectedMenuPageType, Mode=TwoWay, Converter={StaticResource MenuPageTypeToBooleanConverter}, ConverterParameter=DataBase}"
+                            Command="{Binding SelectMenuPageCommand}"
+                            CommandParameter="DataBase"
+                            Content="ExcelToDb"
+                            Style="{StaticResource MenuButton}" />
+                        <GridSplitter
+                            Width="200"
+                            Height="1"
+                            Background="DodgerBlue" />
+                        <Button
+                            Background="{Binding SelectedMenuPageType, Mode=TwoWay, Converter={StaticResource MenuPageTypeToBooleanConverter}, ConverterParameter=PDF}"
+                            Command="{Binding SelectMenuPageCommand}"
+                            CommandParameter="PDF"
+                            Content="PDF"
+                            Style="{StaticResource MenuButton}" />
+                        <GridSplitter
+                            Width="200"
+                            Height="1"
+                            Background="DodgerBlue" />
+                        <Button
+                            Background="{Binding SelectedMenuPageType, Mode=TwoWay, Converter={StaticResource MenuPageTypeToBooleanConverter}, ConverterParameter=Cipher}"
+                            Command="{Binding SelectMenuPageCommand}"
+                            CommandParameter="Cipher"
+                            Content="Cipher"
+                            Style="{StaticResource MenuButton}" />
+                        <GridSplitter
+                            Width="200"
+                            Height="1"
+                            Background="DodgerBlue" />
+
+                    </StackPanel>
+                </StackPanel>
+
+                <GridSplitter
+                    x:Name="RectMenuGridSplitter"
+                    Width="1"
+                    Height="800"
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Left"
+                    Panel.ZIndex="800">
+                    <GridSplitter.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Offset="0.5" Color="DodgerBlue" />
+                            <GradientStop Offset="1" Color="White" />
+                        </LinearGradientBrush>
+                    </GridSplitter.Background>
+                </GridSplitter>
+
+            </StackPanel>
+
+            <StackPanel Margin="80,0,0,0" Orientation="Horizontal">
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+
+                            <Frame
+                                x:Name="MenuPage"
+                                Content="{Binding MenuFrameSource}"
+                                NavigationUIVisibility="Hidden" />
+                            <!--<Frame Source="/Views/MenuPage.xaml" />-->
+                        </StackPanel>
+                        <Frame
+                            x:Name="page"
+                            Content="{Binding FrameSource}"
+                            NavigationUIVisibility="Hidden" />
+                    </StackPanel>
+                    <Frame Margin="30,0,30,10" Source="/Views/LogPage.xaml" />
+                </StackPanel>
+
+            </StackPanel>
+            <myControls:ProgressRing
+                x:Name="pr"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Visibility="{Binding IsProgressRingVisibale, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
         </Grid>
-        <Grid Grid.Column="1" Margin="0,0,0,0">
-            <Frame Source="/Views/LogPage.xaml"/>
-        </Grid>
-    </Grid>
+
+    </Viewbox>
 </Window>

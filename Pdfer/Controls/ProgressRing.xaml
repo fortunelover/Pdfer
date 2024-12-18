@@ -1,0 +1,145 @@
+﻿<UserControl
+    x:Class="Tooler.Controls.ProgressRing"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:Tooler"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="Trans" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Ellipse.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)">
+                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="90" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="270" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="450" />
+                <LinearDoubleKeyFrame KeyTime="0:0:3.2" Value="630" />
+                <EasingDoubleKeyFrame KeyTime="0:0:3.4" Value="720" />
+                <EasingDoubleKeyFrame KeyTime="0:0:5.0" Value="720" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity">
+                <LinearDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.6" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1" />
+                <LinearDoubleKeyFrame KeyTime="0:0:3.2" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseOut" />
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:5.0" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Canvas>
+        <Ellipse
+            x:Name="el"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse
+            x:Name="el2"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue"
+            Opacity="0">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse
+            x:Name="el3"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue"
+            Opacity="0">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse
+            x:Name="el4"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue"
+            Opacity="0">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse
+            x:Name="el5"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue"
+            Opacity="0">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse
+            x:Name="el6"
+            Canvas.Left="73"
+            Canvas.Top="57"
+            Width="10"
+            Height="10"
+            Fill="DeepSkyBlue"
+            Opacity="0">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform CenterX="-20" CenterY="-40" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+    </Canvas>
+</UserControl>

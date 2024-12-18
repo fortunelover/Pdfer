@@ -1,0 +1,241 @@
+﻿<Page
+    x:Class="DataBase.Views.ExcelImportPageTemp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converter="clr-namespace:Tooler.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:DataBase.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:DataBase.ViewModels"
+    Title="Excel2DbPage"
+    Height="700"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Converter:TypeToStringConverter x:Key="TypeToStringConverter" />
+        <Converter:ObjectToStringConverter x:Key="ObjectToStringConverter" />
+    </Page.Resources>
+    <Grid
+        Width="800"
+        Height="700"
+        Background="AliceBlue">
+
+        <StackPanel>
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <StackPanel Margin="0,0,20,0">
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontSize="30"
+                        FontWeight="Black"
+                        FontFamily="Segoe Print"
+                        Text="DbConfig" />
+
+                    <Border
+                        Height="200"
+                        Margin="0,0,0,0"
+                        Style="{StaticResource CycleBorder}">
+                        <StackPanel>
+                            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                                <TextBlock Width="100" Margin="10,0,0,0">配置名称：</TextBlock>
+                                <ComboBox
+                                    x:Name="Db"
+                                    Width="180"
+                                    Height="20"
+                                    DisplayMemberPath="ConfigName"
+                                    IsEditable="True"
+                                    IsTextSearchEnabled="False"
+                                    ItemsSource="{Binding DbConnCollection, Mode=TwoWay}"
+                                    SelectedItem="{Binding DbConn, Mode=TwoWay}"
+                                    Text="{Binding DbConn.ConfigName, Mode=TwoWay}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <i:InvokeCommandAction Command="{Binding ComboBoxSelectionChangedCommand}" CommandParameter="{Binding ElementName=Db}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel
+                                Height="20"
+                                Margin="0,10,10,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <TextBlock Width="100" Margin="10,0,0,0">Data Source</TextBlock>
+                                <TextBox
+                                    x:Name="DataSource"
+                                    Width="180"
+                                    Height="20"
+                                    Text="{Binding DbConn.DataSource, Mode=TwoWay}" />
+                            </StackPanel>
+                            <StackPanel
+                                Height="20"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <TextBlock Width="100" Margin="10,0,0,0">Initial Catalog</TextBlock>
+                                <TextBox
+                                    x:Name="InitialCatalog"
+                                    Width="180"
+                                    Height="20"
+                                    Text="{Binding DbConn.InitialCatalog, Mode=TwoWay}" />
+                            </StackPanel>
+                            <StackPanel
+                                Height="20"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <TextBlock Width="100" Margin="10,0,0,0">User Id</TextBlock>
+                                <TextBox
+                                    x:Name="UserID"
+                                    Width="180"
+                                    Height="20"
+                                    Text="{Binding DbConn.UserID, Mode=TwoWay}" />
+                            </StackPanel>
+                            <StackPanel
+                                Height="20"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <TextBlock Width="100" Margin="10,0,0,0">Password</TextBlock>
+                                <TextBox
+                                    x:Name="Password"
+                                    Width="180"
+                                    Height="20"
+                                    Text="{Binding DbConn.Password, Mode=TwoWay}" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal">
+                                <Button
+                                    Width="60"
+                                    Height="20"
+                                    Margin="0,0,10,0"
+                                    Command="{Binding NewDbConfigCommand}"
+                                    Content="新增" />
+                                <Button
+                                    Width="60"
+                                    Height="20"
+                                    Margin="0,0,10,0"
+                                    Command="{Binding DeleteDbConfigCommand}"
+                                    Content="删除" />
+                                <Button
+                                    Width="60"
+                                    Height="20"
+                                    Margin="0,0,10,0"
+                                    Command="{Binding SaveDbConfigCommand}"
+                                    Content="保存" />
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock
+                        Margin="10,0,0,0"
+                        FontSize="30"
+                        FontWeight="Black"
+                        FontFamily="Segoe Print"
+                        Text="ExcelInfo" />
+
+                    <Border Height="200" Style="{StaticResource CycleBorder}">
+                        <StackPanel Margin="10" VerticalAlignment="Top">
+                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" />
+                            <StackPanel Height="60" Orientation="Horizontal">
+                                <TextBlock
+                                    Width="35"
+                                    Margin="0,5,0,0"
+                                    VerticalAlignment="Top"
+                                    Text="Path:" />
+                                <TextBox
+                                    Width="220"
+                                    Height="50"
+                                    Margin="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Text="{Binding ExcelPath}"
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                            <StackPanel
+                                Height="30"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Width="35"
+                                    Margin="0,2,0,0"
+                                    VerticalAlignment="Top"
+                                    Text="Sheet：" />
+                                <ComboBox
+                                    x:Name="Sheet"
+                                    Width="80"
+                                    Height="20"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Top"
+                                    IsEditable="False"
+                                    ItemsSource="{Binding Sheets, Mode=OneWay}"
+                                    SelectedItem="{Binding CurrentSheet, Mode=TwoWay}" />
+                                <Button
+                                    Width="60"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Command="{Binding SelectExcelCommand}"
+                                    Content="选择" />
+                                <Button
+                                    Width="60"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Top"
+                                    Command="{Binding OpenExcelCommand}"
+                                    Content="打开" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+
+            </StackPanel>
+            <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                <TextBlock
+                    Width="100"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe Print"
+                    FontSize="30">
+                    Table:
+                </TextBlock>
+                <TextBox
+                    x:Name="Table"
+                    Width="510"
+                    Height="40"
+                    VerticalContentAlignment="Center"
+                    FontSize="20"
+                    Text="{Binding Table, Mode=TwoWay}" />
+
+            </StackPanel>
+
+            <StackPanel
+                Height="70"
+                Margin="10,0,0,0"
+                Orientation="Horizontal">
+
+                <Button
+                    Width="160"
+                    Margin="0,0,0,0"
+                    Command="{Binding ImportExcelTempCommand}"
+                    Content="ImportTemp"
+                    IsEnabled="{Binding BtnEnabled, Mode=OneWay}"
+                    Style="{StaticResource ButtonSegoe}" />
+                <Button
+                    Width="160"
+                    Margin="20,0,0,0"
+                    Command="{Binding CancelCommand}"
+                    Content="Cancel"
+                    Style="{StaticResource ButtonSegoe}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

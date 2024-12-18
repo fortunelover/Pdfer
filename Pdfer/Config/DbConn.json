@@ -1,0 +1,101 @@
+[
+  {
+    "ID": "01",
+    "DbConnStr": "User ID=ugreenread;Data Source=rm-wz9y9z72v8xeck341so.sqlserver.rds.aliyuncs.com,3433;Password=ugreenread@*#202105;Initial Catalog=ugreen_jiezhuan_2024;TrustServerCertificate=true",
+    "ConfigName": "Kingdee-正式",
+    "DataSource": "rm-wz9y9z72v8xeck341so.sqlserver.rds.aliyuncs.com,3433",
+    "InitialCatalog": "ugreen_jiezhuan_2024",
+    "UserID": "ugreenread",
+    "Password": "ugreenread@*#202105"
+  },
+  {
+    "ID": "02",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.221;Password=ugreen@*#2020;Initial Catalog=testdb0707;TrustServerCertificate=true",
+    "ConfigName": "Kingdee-报表",
+    "DataSource": "192.168.1.221",
+    "InitialCatalog": "testdb0707",
+    "UserID": "sa",
+    "Password": "ugreen@*#2020"
+  },
+  {
+    "ID": "03",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.221;Password=ugreen@*#2020;Initial Catalog=testdb040516;TrustServerCertificate=true",
+    "ConfigName": "Kingdee-测试",
+    "DataSource": "192.168.1.221",
+    "InitialCatalog": "testdb040516",
+    "UserID": "sa",
+    "Password": "ugreen@*#2020"
+  },
+  {
+    "ID": "04",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.204;Password=Ugreen#2020;Initial Catalog=UgreenMidData;TrustServerCertificate=true",
+    "ConfigName": "SRM-测试-中间库",
+    "DataSource": "192.168.1.204",
+    "InitialCatalog": "UgreenMidData",
+    "UserID": "sa",
+    "Password": "Ugreen#2020"
+  },
+  {
+    "ID": "0df96c39-5431-4b07-bee0-9a725b93b9d0",
+    "DbConnStr": "User ID=ugreenread;Data Source=rm-wz9y9z72v8xeck341so.sqlserver.rds.aliyuncs.com,3433;Password=ugreenread@*#202105;Initial Catalog=UgreenMidData;TrustServerCertificate=true",
+    "ConfigName": "SRM-正式-中间库",
+    "DataSource": "rm-wz9y9z72v8xeck341so.sqlserver.rds.aliyuncs.com,3433",
+    "InitialCatalog": "UgreenMidData",
+    "UserID": "ugreenread",
+    "Password": "ugreenread@*#202105"
+  },
+  {
+    "ID": "eb52149e-37f2-4cac-afc3-80d170862ce1",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.204;Password=Ugreen#2020;Initial Catalog=UgreenDomesticRepair;TrustServerCertificate=true",
+    "ConfigName": "返修-测试",
+    "DataSource": "192.168.1.204",
+    "InitialCatalog": "UgreenDomesticRepair",
+    "UserID": "sa",
+    "Password": "Ugreen#2020"
+  },
+  {
+    "ID": "1cbc0019-2d33-475e-a271-79887691948a",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.204;Password=Ugreen#2020;Initial Catalog=UgreenQuality;TrustServerCertificate=true",
+    "ConfigName": "品质QMS-测试",
+    "DataSource": "192.168.1.204",
+    "InitialCatalog": "UgreenQuality",
+    "UserID": "sa",
+    "Password": "Ugreen#2020"
+  },
+  {
+    "ID": "a84dbb9e-65f4-497d-946f-0c688a488ccf",
+    "DbConnStr": "User ID=datacenter;Data Source=192.168.1.203,1433;Password=Datacenter*#202209;Initial Catalog=UgreenDataCenter;TrustServerCertificate=true",
+    "ConfigName": "旺店通OMS-中间库-正式",
+    "DataSource": "192.168.1.203,1433",
+    "InitialCatalog": "UgreenDataCenter",
+    "UserID": "datacenter",
+    "Password": "Datacenter*#202209"
+  },
+  {
+    "ID": "e79a7224-ed18-4427-b0db-f00ca5c2b352",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.204;Password=Ugreen#2020;Initial Catalog=UgreenDomesticWms_20240228;TrustServerCertificate=true",
+    "ConfigName": "内贸Wms-测试",
+    "DataSource": "192.168.1.204",
+    "InitialCatalog": "UgreenDomesticWms_20240228",
+    "UserID": "sa",
+    "Password": "Ugreen#2020"
+  },
+  {
+    "ID": "cf07ca65-9274-45f0-9865-488b5f024015",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.204;Password=Ugreen#2020;Initial Catalog=UgreenFWMSTest;TrustServerCertificate=true",
+    "ConfigName": "外贸Wms-测试",
+    "DataSource": "192.168.1.204",
+    "InitialCatalog": "UgreenFWMSTest",
+    "UserID": "sa",
+    "Password": "Ugreen#2020"
+  },
+  {
+    "ID": "40ee0eaf-d9c2-4c1e-afe4-1e8bc1d60c48",
+    "DbConnStr": "User ID=sa;Data Source=192.168.1.230;Password=ugreen*#2020;Initial Catalog=UgreenFWMSDevelop;TrustServerCertificate=true",
+    "ConfigName": "外贸Wms-开发",
+    "DataSource": "192.168.1.230",
+    "InitialCatalog": "UgreenFWMSDevelop",
+    "UserID": "sa",
+    "Password": "ugreen*#2020"
+  }
+]
