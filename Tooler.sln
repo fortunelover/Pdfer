@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tooler", "Pdfer\Tooler.csproj", "{B7F456F4-FED8-4315-B594-14FDB05286D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tooler", "Tooler\Tooler.csproj", "{B7F456F4-FED8-4315-B594-14FDB05286D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
